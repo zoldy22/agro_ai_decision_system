@@ -1,12 +1,8 @@
+
 """
-Irrigation Need Predictor — Prediction Script
-Module 1 of the Agro AI Decision Support System
-
-Loads the saved model and predicts irrigation need
-(Low / Medium / High) for new farm input data.
-
-Usage:
-    python src/irrigation/predict.py
+Author: Harmanpreet Singh
+Project: Agro AI Decision Support System — Final Year Project
+Institution: TIET, Patiala
 """
 import warnings
 warnings.filterwarnings('ignore')
@@ -14,16 +10,15 @@ import pickle
 import numpy as np
 import os
 
-# ─────────────────────────────────────────
+
 # CONFIGURATION
-# ─────────────────────────────────────────
+
 
 MODELS_DIR = 'models'
 
 
-# ─────────────────────────────────────────
 # LOAD SAVED ARTIFACTS
-# ─────────────────────────────────────────
+
 
 def load_artifacts():
     artifacts = {}
@@ -42,13 +37,12 @@ def load_artifacts():
     artifacts['reverse_target_map'] = {
         v: k for k, v in artifacts['target_map'].items()
     }
-    print("✅ All artifacts loaded successfully.")
+    print(" All artifacts loaded successfully.")
     return artifacts
 
 
-# ─────────────────────────────────────────
 # PREDICT FUNCTION
-# ─────────────────────────────────────────
+
 
 def predict_irrigation(input_data: dict, artifacts: dict) -> str:
     """
@@ -83,9 +77,8 @@ def predict_irrigation(input_data: dict, artifacts: dict) -> str:
     return prediction_label
 
 
-# ─────────────────────────────────────────
 # TEST WITH SAMPLE INPUTS
-# ─────────────────────────────────────────
+
 
 def main():
     print("=" * 50)

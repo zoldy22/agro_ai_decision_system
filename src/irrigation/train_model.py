@@ -1,12 +1,7 @@
 """
-Irrigation Need Predictor — Training Script
-Module 1 of the Agro AI Decision Support System
-
-Trains a Decision Tree classifier to predict irrigation need
-(Low / Medium / High) based on soil and environmental conditions.
-
-Usage:
-    python src/irrigation/train_model.py
+Author: Harmanpreet Singh
+Project: Agro AI Decision Support System — Final Year Project
+Institution: TIET, Patiala
 """
 
 import os
@@ -22,9 +17,9 @@ from sklearn.metrics import accuracy_score, classification_report
 warnings.filterwarnings('ignore')
 
 
-# ─────────────────────────────────────────
+
 # CONFIGURATION
-# ─────────────────────────────────────────
+
 
 DATA_PATH   = 'data/irrigation.csv'
 MODELS_DIR  = 'models'
@@ -56,9 +51,7 @@ TARGET_COLUMN = 'Irrigation_Need'
 TARGET_MAP    = {'Low': 0, 'Medium': 1, 'High': 2}
 
 
-# ─────────────────────────────────────────
-# STEP 1 — LOAD DATA
-# ─────────────────────────────────────────
+# STEP 1 — LOAD DATAit h
 
 def load_data(path):
     print(f"[1/5] Loading data from {path}...")
@@ -68,9 +61,7 @@ def load_data(path):
     return df
 
 
-# ─────────────────────────────────────────
 # STEP 2 — PREPROCESS
-# ─────────────────────────────────────────
 
 def preprocess(df):
     print("\n[2/5] Preprocessing...")
@@ -95,9 +86,8 @@ def preprocess(df):
     return X, y, le_dict, all_features
 
 
-# ─────────────────────────────────────────
 # STEP 3 — SPLIT
-# ─────────────────────────────────────────
+
 
 def split_data(X, y):
     print("\n[3/5] Splitting data (80% train / 20% test)...")
@@ -112,9 +102,8 @@ def split_data(X, y):
     return X_train, X_test, y_train, y_test
 
 
-# ─────────────────────────────────────────
 # STEP 4 — TRAIN
-# ─────────────────────────────────────────
+
 
 def train_model(X_train, y_train):
     print("\n[4/5] Training Decision Tree...")
@@ -127,9 +116,7 @@ def train_model(X_train, y_train):
     return model
 
 
-# ─────────────────────────────────────────
 # STEP 5 — EVALUATE
-# ─────────────────────────────────────────
 
 def evaluate_model(model, X_test, y_test):
     print("\n[5/5] Evaluating model...")
@@ -141,9 +128,7 @@ def evaluate_model(model, X_test, y_test):
     return acc
 
 
-# ─────────────────────────────────────────
 # SAVE ARTIFACTS
-# ─────────────────────────────────────────
 
 def save_artifacts(model, le_dict, all_features):
     os.makedirs(MODELS_DIR, exist_ok=True)
@@ -162,9 +147,9 @@ def save_artifacts(model, le_dict, all_features):
         print(f"  ✅ Saved → {path}")
 
 
-# ─────────────────────────────────────────
+
 # MAIN
-# ─────────────────────────────────────────
+
 
 def main():
     print("=" * 50)
@@ -186,4 +171,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()yes 
+    main() 
